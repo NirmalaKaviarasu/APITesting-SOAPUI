@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ddac7937-6984-4e3f-8fce-4819708b9fb3" activeEnvironment="Default" name="WEBSERVICE_TESTING_SOAPUI" resourceRoot="${projectDir}" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="TS_01"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="c6daa0ec-c30b-4b6d-bda2-ee3ed0adb7c9" wsaVersion="NONE" name="blzServiceSoapBinding" type="wsdl" bindingName="{http://www.springframework.org/schema/beans}blzServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/services/blzService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/services/blzService?wsdl"><con:part><con:url>http://localhost:8080/services/blzService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="blzService" targetNamespace="http://www.springframework.org/schema/beans" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.springframework.org/schema/beans" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://thomas-bayer.com/blz/">
+  <wsdl:import location="http://localhost:8080/services/blzService?wsdl=BLZServicePortType.wsdl" namespace="http://thomas-bayer.com/blz/"></wsdl:import>
+  <wsdl:binding name="blzServiceSoapBinding" type="ns1:BLZServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getBank">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getBank">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBankResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="blzService">
+    <wsdl:port binding="tns:blzServiceSoapBinding" name="$Proxy61Port">
+      <soap:address location="http://localhost:8080/services/blzService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/services/blzService?wsdl=BLZServicePortType.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="BLZServicePortType" targetNamespace="http://thomas-bayer.com/blz/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://thomas-bayer.com/blz/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://thomas-bayer.com/blz/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://thomas-bayer.com/blz/">
+      <xs:element name="getBank" type="tns:getBankType"/>
+      <xs:element name="getBankResponse" type="tns:getBankResponseType"/>
+      <xs:complexType name="getBankType">
+        <xs:sequence>
+          <xs:element name="blz" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getBankResponseType">
+        <xs:sequence>
+          <xs:element name="details" type="tns:detailsType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="detailsType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="bezeichnung" type="xs:string"/>
+          <xs:element minOccurs="0" name="bic" type="xs:string"/>
+          <xs:element minOccurs="0" name="ort" type="xs:string"/>
+          <xs:element minOccurs="0" name="plz" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getBank">
+    <wsdl:part element="ns1:getBank" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBankResponse">
+    <wsdl:part element="ns1:getBankResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BLZServicePortType">
+    <wsdl:operation name="getBank">
+      <wsdl:input message="ns1:getBank" name="getBank"></wsdl:input>
+      <wsdl:output message="ns1:getBankResponse" name="getBankResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/services/blzService</con:endpoint></con:endpoints><con:operation id="ad67e192-7489-4034-b842-a3c6f0eedbce" isOneWay="false" action="" name="getBank" bindingOperationName="getBank" type="Request-Response" outputName="getBankResponse" inputName="getBank" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5558bfc1-942a-4159-906c-b1cf0d848db5" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/blzService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:blz="http://thomas-bayer.com/blz/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <blz:getBank>\r
+         <blz:blz>?</blz:blz>\r
+      </blz:getBank>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.springframework.org/schema/beans/BLZServicePortType/getBank"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="e092e9d1-9f86-43cb-bfba-3b7ad4fa937b" wsaVersion="NONE" name="medicareSupplierServiceSoapBinding" type="wsdl" bindingName="{http://www.springframework.org/schema/beans}medicareSupplierServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/services/medicareSupplierService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/services/medicareSupplierService?wsdl"><con:part><con:url>http://localhost:8080/services/medicareSupplierService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="medicareSupplierService" targetNamespace="http://www.springframework.org/schema/beans" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.springframework.org/schema/beans" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://www.webservicex.net/">
+  <wsdl:import location="http://localhost:8080/services/medicareSupplierService?wsdl=MediCareSupplierSoap.wsdl" namespace="http://www.webservicex.net/"></wsdl:import>
+  <wsdl:binding name="medicareSupplierServiceSoapBinding" type="ns1:MediCareSupplierSoap">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetSupplierByZipCode">
+      <soap:operation soapAction="http://www.webservicex.net/GetSupplierByZipCode" style="document"/>
+      <wsdl:input name="GetSupplierByZipCode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetSupplierByZipCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierByCity">
+      <soap:operation soapAction="http://www.webservicex.net/GetSupplierByCity" style="document"/>
+      <wsdl:input name="GetSupplierByCity">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetSupplierByCityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierBySupplyType">
+      <soap:operation soapAction="http://www.webservicex.net/GetSupplierBySupplyType" style="document"/>
+      <wsdl:input name="GetSupplierBySupplyType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetSupplierBySupplyTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="medicareSupplierService">
+    <wsdl:port binding="tns:medicareSupplierServiceSoapBinding" name="$Proxy62Port">
+      <soap:address location="http://localhost:8080/services/medicareSupplierService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/services/medicareSupplierService?wsdl=MediCareSupplierSoap.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="MediCareSupplierSoap" targetNamespace="http://www.webservicex.net/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.webservicex.net/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.webservicex.net/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.webservicex.net/">
+      <xs:element name="GetSupplierByCity">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="City" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupplierByCityResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GetSupplierByCityResult" type="xs:boolean"/>
+            <xs:element name="SupplierDataLists" type="tns:SupplierDataList"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupplierBySupplyType">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="description" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupplierBySupplyTypeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GetSupplierBySupplyTypeResult" type="xs:boolean"/>
+            <xs:element name="SupplierDataLists" type="tns:SupplierDataList"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupplierByZipCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="zip" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSupplierByZipCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GetSupplierByZipCodeResult" type="xs:boolean"/>
+            <xs:element name="SupplierDataLists" type="tns:SupplierDataList"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="SupplierDataList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SupplierDatas" type="tns:ArrayOfSupplierData"/>
+          <xs:element name="TotalRecords" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfSupplierData">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="SupplierData" type="tns:SupplierData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SupplierData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SupplierNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="CompanyName" type="xs:string"/>
+          <xs:element minOccurs="0" name="Address1" type="xs:string"/>
+          <xs:element minOccurs="0" name="Address2" type="xs:string"/>
+          <xs:element minOccurs="0" name="City" type="xs:string"/>
+          <xs:element minOccurs="0" name="State" type="xs:string"/>
+          <xs:element minOccurs="0" name="Zip" type="xs:string"/>
+          <xs:element minOccurs="0" name="ZipPlus4" type="xs:string"/>
+          <xs:element minOccurs="0" name="Telephone" type="xs:string"/>
+          <xs:element minOccurs="0" name="Description" type="xs:string"/>
+          <xs:element minOccurs="0" name="IsSupplierParticipating" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSupplierByZipCode">
+    <wsdl:part element="ns1:GetSupplierByZipCode" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierBySupplyType">
+    <wsdl:part element="ns1:GetSupplierBySupplyType" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierByZipCodeResponse">
+    <wsdl:part element="ns1:GetSupplierByZipCodeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierByCity">
+    <wsdl:part element="ns1:GetSupplierByCity" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierBySupplyTypeResponse">
+    <wsdl:part element="ns1:GetSupplierBySupplyTypeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierByCityResponse">
+    <wsdl:part element="ns1:GetSupplierByCityResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MediCareSupplierSoap">
+    <wsdl:operation name="GetSupplierByZipCode">
+      <wsdl:input message="ns1:GetSupplierByZipCode" name="GetSupplierByZipCode"></wsdl:input>
+      <wsdl:output message="ns1:GetSupplierByZipCodeResponse" name="GetSupplierByZipCodeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierByCity">
+      <wsdl:input message="ns1:GetSupplierByCity" name="GetSupplierByCity"></wsdl:input>
+      <wsdl:output message="ns1:GetSupplierByCityResponse" name="GetSupplierByCityResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierBySupplyType">
+      <wsdl:input message="ns1:GetSupplierBySupplyType" name="GetSupplierBySupplyType"></wsdl:input>
+      <wsdl:output message="ns1:GetSupplierBySupplyTypeResponse" name="GetSupplierBySupplyTypeResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/services/medicareSupplierService</con:endpoint></con:endpoints><con:operation id="97b54025-71f3-4d27-93d8-25fcc4885e61" isOneWay="false" action="http://www.webservicex.net/GetSupplierByCity" name="GetSupplierByCity" bindingOperationName="GetSupplierByCity" type="Request-Response" outputName="GetSupplierByCityResponse" inputName="GetSupplierByCity" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bb6c99bd-1cf5-4f4b-9d1a-ada09521cd7f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/medicareSupplierService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservicex.net/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:GetSupplierByCity>\r
+         <!--Optional:-->\r
+         <web:City>?</web:City>\r
+      </web:GetSupplierByCity>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/GetSupplierByCity"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b89ea318-1d06-4276-ba52-8f97b473e75a" isOneWay="false" action="http://www.webservicex.net/GetSupplierBySupplyType" name="GetSupplierBySupplyType" bindingOperationName="GetSupplierBySupplyType" type="Request-Response" outputName="GetSupplierBySupplyTypeResponse" inputName="GetSupplierBySupplyType" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="51695b91-74f3-4653-b540-2eae026a4357" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/medicareSupplierService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservicex.net/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:GetSupplierBySupplyType>\r
+         <!--Optional:-->\r
+         <web:description>?</web:description>\r
+      </web:GetSupplierBySupplyType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/GetSupplierBySupplyType"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="abb71221-4f1b-44f8-acf6-cc6db670ed8b" isOneWay="false" action="http://www.webservicex.net/GetSupplierByZipCode" name="GetSupplierByZipCode" bindingOperationName="GetSupplierByZipCode" type="Request-Response" outputName="GetSupplierByZipCodeResponse" inputName="GetSupplierByZipCode" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e3088152-fd94-4539-8f25-b50a0405a8ef" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/medicareSupplierService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservicex.net/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:GetSupplierByZipCode>\r
+         <!--Optional:-->\r
+         <web:zip>?</web:zip>\r
+      </web:GetSupplierByZipCode>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/GetSupplierByZipCode"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="ba50fbe8-8dd0-44ac-890d-548bee020a59" wsaVersion="NONE" name="accountServiceSoapBinding" type="wsdl" bindingName="{http://www.springframework.org/schema/beans}accountServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/services/accountService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/services/accountService?wsdl"><con:part><con:url>http://localhost:8080/services/accountService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="accountService" targetNamespace="http://www.springframework.org/schema/beans" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.springframework.org/schema/beans" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://www.example.org/AccountService/">
+  <wsdl:import location="http://localhost:8080/services/accountService?wsdl=AccountService.wsdl" namespace="http://www.example.org/AccountService/"></wsdl:import>
+  <wsdl:binding name="accountServiceSoapBinding" type="ns1:AccountService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="withdraw">
+      <soap:operation soapAction="http://www.example.org/AccountService/withdraw" style="document"/>
+      <wsdl:input name="withdraw">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="withdrawResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBalance">
+      <soap:operation soapAction="http://www.example.org/AccountService/getBalance" style="document"/>
+      <wsdl:input name="getBalance">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBalanceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transfer">
+      <soap:operation soapAction="http://www.example.org/AccountService/transfer" style="document"/>
+      <wsdl:input name="transfer">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="transferResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deposit">
+      <soap:operation soapAction="http://www.example.org/AccountService/deposit" style="document"/>
+      <wsdl:input name="deposit">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="depositResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="accountService">
+    <wsdl:port binding="tns:accountServiceSoapBinding" name="$Proxy63Port">
+      <soap:address location="http://localhost:8080/services/accountService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/services/accountService?wsdl=AccountService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="AccountService" targetNamespace="http://www.example.org/AccountService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.example.org/AccountService/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.example.org/AccountService/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="deposit">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accountNo" type="xs:string"/>
+            <xs:element name="amount" type="xs:double"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="depositResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBalance">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accountNo" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBalanceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+            <xs:element name="amount" type="xs:double"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="transfer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sourceAccountNo" type="xs:string"/>
+            <xs:element name="destAccountNo" type="xs:string"/>
+            <xs:element name="amount" type="xs:double"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="transferResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="withdraw">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accountNo" type="xs:string"/>
+            <xs:element name="amount" type="xs:double"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="withdrawResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="withdraw">
+    <wsdl:part element="ns1:withdraw" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="withdrawResponse">
+    <wsdl:part element="ns1:withdrawResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBalanceResponse">
+    <wsdl:part element="ns1:getBalanceResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="transferResponse">
+    <wsdl:part element="ns1:transferResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deposit">
+    <wsdl:part element="ns1:deposit" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBalance">
+    <wsdl:part element="ns1:getBalance" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="transfer">
+    <wsdl:part element="ns1:transfer" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="depositResponse">
+    <wsdl:part element="ns1:depositResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AccountService">
+    <wsdl:operation name="withdraw">
+      <wsdl:input message="ns1:withdraw" name="withdraw"></wsdl:input>
+      <wsdl:output message="ns1:withdrawResponse" name="withdrawResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBalance">
+      <wsdl:input message="ns1:getBalance" name="getBalance"></wsdl:input>
+      <wsdl:output message="ns1:getBalanceResponse" name="getBalanceResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transfer">
+      <wsdl:input message="ns1:transfer" name="transfer"></wsdl:input>
+      <wsdl:output message="ns1:transferResponse" name="transferResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deposit">
+      <wsdl:input message="ns1:deposit" name="deposit"></wsdl:input>
+      <wsdl:output message="ns1:depositResponse" name="depositResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/services/accountService</con:endpoint></con:endpoints><con:operation id="4255ff76-6107-4b60-82d0-d25c4cf88c43" isOneWay="false" action="http://www.example.org/AccountService/deposit" name="deposit" bindingOperationName="deposit" type="Request-Response" outputName="depositResponse" inputName="deposit" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="55744844-7f32-4201-bcef-6c0ec331c4fa" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:deposit>\r
+         <acc:accountNo>ACC-10010</acc:accountNo>\r
+         <acc:amount>100</acc:amount>\r
+      </acc:deposit>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/AccountService/deposit"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="252722c1-6edc-4ac7-92c5-ab2ca2710e9f" isOneWay="false" action="http://www.example.org/AccountService/getBalance" name="getBalance" bindingOperationName="getBalance" type="Request-Response" outputName="getBalanceResponse" inputName="getBalance" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d8661331-00e5-449e-ac1b-f9292a65fed8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:getBalance>\r
+         <acc:accountNo>ACC-10010</acc:accountNo>\r
+      </acc:getBalance>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/AccountService/getBalance"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="31b6200e-b964-47ec-b107-b730b2aaf096" isOneWay="false" action="http://www.example.org/AccountService/transfer" name="transfer" bindingOperationName="transfer" type="Request-Response" outputName="transferResponse" inputName="transfer" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5b0ca78b-6e6c-4c3e-9b7f-fd7eca95512e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:transfer>\r
+         <acc:sourceAccountNo>?</acc:sourceAccountNo>\r
+         <acc:destAccountNo>?</acc:destAccountNo>\r
+         <acc:amount>?</acc:amount>\r
+      </acc:transfer>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/AccountService/transfer"/></con:call></con:operation><con:operation id="4cb9bc13-b701-435b-8cf5-a02462742f97" isOneWay="false" action="http://www.example.org/AccountService/withdraw" name="withdraw" bindingOperationName="withdraw" type="Request-Response" outputName="withdrawResponse" inputName="withdraw" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="36b7782c-220a-481f-9ef1-628b4c229e2e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:withdraw>\r
+         <acc:accountNo>?</acc:accountNo>\r
+         <acc:amount>?</acc:amount>\r
+      </acc:withdraw>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/AccountService/withdraw"/></con:call></con:operation></con:interface><con:testSuite id="472c1b6b-12c1-4308-b714-310264456fa3" name="TS_01"><con:settings/><con:runType>PARALLELL</con:runType><con:testCase id="3eb65b79-9a26-4b35-ab59-6932d7756fa3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_01" searchProperties="true"><con:settings/><con:testStep type="request" name="Check Balances" id="87d1a177-c812-448f-bd0b-6929128595f3"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>accountServiceSoapBinding</con:interface><con:operation>getBalance</con:operation><con:request name="Check Balances" id="f424a5b1-9a60-4d63-96e7-7dd027cad06c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:getBalance>\r
+         <acc:accountNo>ACC-10010</acc:accountNo>\r
+      </acc:getBalance>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Fault Assertion" id="eebeac2e-47e4-4377-8a6a-a2159fde8bbc" name="Not SOAP Fault"/><con:assertion type="SOAP Response" id="c488c192-9ab2-461e-8e10-8774485d0711"/><con:assertion type="Simple Contains" id="33b9a03f-cb53-426a-889e-fa45ac324ba2" name="Contains"><con:configuration><token>getBalanceResponse</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="00d81fe9-ce6c-45d2-9888-ca409781fd55" name="Not Contains"><con:configuration><token>statusus</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="9645f435-69a5-4398-96cb-56c5fbf88dfa" name="Contains 1"><con:configuration><token>Retrieved balance successfully</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" id="5a8a910f-2ead-4c3b-a77b-45ad828e7a45" name="XPath Match 1"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="calltestcase" name="Run TestCase" id="dc24898d-12fa-4dfc-80b9-36724ed18660"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>690dbcb8-3243-48e4-b9b8-f8885acc064a</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="690dbcb8-3243-48e4-b9b8-f8885acc064a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_02" searchProperties="true"><con:settings/><con:testStep type="request" name="Check Deposit" id="b96a0bbb-4074-4d6e-83a5-16da3f54cbb2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>accountServiceSoapBinding</con:interface><con:operation>deposit</con:operation><con:request name="Check Deposit" id="1f33d45b-ddb8-4a8e-a639-073ab2411fa9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:deposit>\r
+         <acc:accountNo>ACC-10010</acc:accountNo>\r
+         <acc:amount>500</acc:amount>\r
+      </acc:deposit>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b110d615-a6c6-444b-ae7e-dacedc963f2b"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="56f5af3a-c4c7-46e2-beef-fa66379e39c9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_03" searchProperties="true"><con:settings/><con:testStep type="request" name="Check Withdraw" id="20aa474d-3688-4671-9188-bb9abaf71d71"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>accountServiceSoapBinding</con:interface><con:operation>withdraw</con:operation><con:request name="Check Withdraw" id="c257d156-dc9e-4715-adbf-f72ace33fb79"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:withdraw>\r
+         <acc:accountNo>ACC-10010</acc:accountNo>\r
+         <acc:amount>500</acc:amount>\r
+      </acc:withdraw>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="620e9f44-f065-4b61-954d-3ce1f6b86877"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="77963506-9c06-4712-ac7e-88d99117538e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_04" searchProperties="true"><con:settings/><con:testStep type="request" name="Check Funds Transfer" id="289b07d4-ba5a-4d72-8b60-e4681bdd8d86"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>accountServiceSoapBinding</con:interface><con:operation>transfer</con:operation><con:request name="Check Funds Transfer" id="a46eeb33-7dfe-4a2e-9cc0-344aa63ca6b2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:transfer>\r
+         <acc:sourceAccountNo>ACC-10011</acc:sourceAccountNo>\r
+         <acc:destAccountNo>ACC-10010</acc:destAccountNo>\r
+         <acc:amount>200</acc:amount>\r
+      </acc:transfer>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="1b9e381a-52fd-4dd1-b72a-c434a374d9ca"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="2bf95493-ec19-4daa-9e7d-e0ea0cf6fb48" name="TS_02"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="e8cef911-d8ef-4f0a-afe9-1383793d77f3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_05" searchProperties="true"><con:settings/><con:testStep type="request" name="Check Balance with Invalid Account" id="ca8c5373-28e7-4ecb-98d2-eee8053a1806"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>accountServiceSoapBinding</con:interface><con:operation>getBalance</con:operation><con:request name="Check Balance with Invalid Account" id="f7b8a614-fd86-41c2-83a6-5bb2c827ff12"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:getBalance>\r
+         <acc:accountNo>ACC-100100</acc:accountNo>\r
+      </acc:getBalance>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e8a87562-c9d6-4b65-8122-90a6e3c1f517"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="7653f654-7c62-4914-8c40-981b1edde740" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_06" searchProperties="true"><con:settings/><con:testStep type="request" name="Check Deposit with Invalid Account" id="5b4f1993-659b-4efa-bd5a-6d7d1d6f2676"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>accountServiceSoapBinding</con:interface><con:operation>deposit</con:operation><con:request name="Check Deposit with Invalid Account" id="e62c0419-55b6-4e7d-8a71-5484e0a8d497"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:deposit>\r
+         <acc:accountNo>ACC-100119</acc:accountNo>\r
+         <acc:amount>800</acc:amount>\r
+      </acc:deposit>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ae83caa5-b11c-4fe8-959d-0b9b6cf7285d"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="13d317f9-d160-4265-90b2-1060e79d0d4a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_07" searchProperties="true"><con:settings/><con:testStep type="request" name="Check deposit with valid account &amp; negative or zero amount" id="2741b9b1-0247-40b0-b509-098498204753"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>accountServiceSoapBinding</con:interface><con:operation>deposit</con:operation><con:request name="Check deposit with valid account &amp; negative or zero amount" id="786eee9d-d604-44b8-898b-4b78ec24ab5a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:deposit>\r
+         <acc:accountNo>ACC-10010</acc:accountNo>\r
+         <acc:amount>0</acc:amount>\r
+      </acc:deposit>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="8c5da068-f48b-48ff-9c0a-5f8f3ef8f810"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="4b09c8b0-bc87-4fd6-b3d3-cbdcfe9f4393" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_08" searchProperties="true"><con:settings/><con:testStep type="request" name="Check withdraw with valid account negative or zero amount" id="ed102fb3-897e-4caa-bd3c-160b2b87fbb6"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>accountServiceSoapBinding</con:interface><con:operation>withdraw</con:operation><con:request name="Check withdraw with valid account negative or zero amount" id="2c5791ef-52fc-4041-9986-526ffc649266"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:withdraw>\r
+         <acc:accountNo>ACC-10010</acc:accountNo>\r
+         <acc:amount>-100</acc:amount>\r
+      </acc:withdraw>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4aead387-1032-4412-936d-df64a2eb8de3"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="91cdab57-b5f6-4cb4-826f-0ca4a9f90496" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_09" searchProperties="true"><con:settings/><con:testStep type="request" name="Check withdraw with amount more than balance" id="23c1f72f-baa8-4973-a018-4d2dc3781ad8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>accountServiceSoapBinding</con:interface><con:operation>withdraw</con:operation><con:request name="Check withdraw with amount more than balance" id="e7756a10-1f66-4c5f-ae98-5d074b20ee42"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:withdraw>\r
+         <acc:accountNo>ACC-10010</acc:accountNo>\r
+         <acc:amount>1201</acc:amount>\r
+      </acc:withdraw>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ab8f5459-fb61-4568-8720-2310cbc40f05"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0d412248-eb7d-4d57-bb15-296d6a1a417d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_10" searchProperties="true"><con:settings/><con:testStep type="request" name="Check transfer with valid source a/c &amp; invalid destination a/c" id="5a404c41-0080-4a26-a72b-897fe2265e6b"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>accountServiceSoapBinding</con:interface><con:operation>transfer</con:operation><con:request name="Check transfer with valid source a/c &amp; invalid destination a/c" id="fe65d68b-030f-4ad2-96d5-b836485db19b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:transfer>\r
+         <acc:sourceAccountNo>ACC-10010</acc:sourceAccountNo>\r
+         <acc:destAccountNo>ACC-100112</acc:destAccountNo>\r
+         <acc:amount>100</acc:amount>\r
+      </acc:transfer>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="31474272-b71f-42ab-a8cf-e863584043ae"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="bf1afd1e-d6d6-4a31-b8a0-a799e36a728c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_11" searchProperties="true"><con:settings/><con:testStep type="request" name="Check transfer with invalid source a/c &amp; valid destination a/c" id="02558e6d-8c67-462f-8310-45bc4efa0dbf"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>accountServiceSoapBinding</con:interface><con:operation>transfer</con:operation><con:request name="Check transfer with invalid source a/c &amp; valid destination a/c" id="bb8fb32c-f258-433f-9c94-61daefe708d2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:transfer>\r
+         <acc:sourceAccountNo>ACC-100100</acc:sourceAccountNo>\r
+         <acc:destAccountNo>ACC-10010</acc:destAccountNo>\r
+         <acc:amount>100</acc:amount>\r
+      </acc:transfer>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="d99d2209-ffb7-466b-bfc5-e570b0ac1a1c"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0d0837cc-ac0d-44af-91a5-81baf1f8a850" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_12" searchProperties="true"><con:settings/><con:testStep type="request" name="check transfer with negative or zero amount" id="1f6f0f9c-c9d2-40d2-b76e-c1ce2b206eaa"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>accountServiceSoapBinding</con:interface><con:operation>transfer</con:operation><con:request name="check transfer with negative or zero amount" id="5af33b1b-4595-42c7-85ac-4c4150701d19"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/accountService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <acc:transfer>\r
+         <acc:sourceAccountNo>ACC-10010</acc:sourceAccountNo>\r
+         <acc:destAccountNo>ACC-10011</acc:destAccountNo>\r
+         <acc:amount>-100</acc:amount>\r
+      </acc:transfer>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="beefb0aa-71f0-4221-bdca-6e5c2bb95301"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="ad06f022-4d30-435b-9ef9-095f2f28aa5a" name="TS_working with property concepts"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="558248bf-9bfa-4a51-9cb1-498d80dc4dcc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TC_working with properties" searchProperties="true"><con:settings/><con:testStep type="request" name="StoringPropertyValue" id="a617afe1-647f-4317-b58a-d3082a71cc80"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>blzServiceSoapBinding</con:interface><con:operation>getBank</con:operation><con:request name="StoringPropertyValue" id="eff2c687-5a94-4a81-90d5-c31255d4bc55"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/blzService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:blz="http://thomas-bayer.com/blz/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <blz:getBank>\r
+         <blz:blz>${#TestSuite#blc}</blz:blz>\r
+      </blz:getBank>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="477281f8-ecb3-42fe-88b7-21a215ccdd58"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="TransferProperty" id="f7042943-bd2e-4ec1-b588-bbe82e558470"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>bic</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>StoringPropertyValue</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.springframework.org/schema/beans';
+declare namespace ns2='http://thomas-bayer.com/blz/';
+
+//ns2:bic</con:sourcePath><con:targetType>bic_code</con:targetType><con:targetStep>StoringValues</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ort</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>StoringPropertyValue</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.springframework.org/schema/beans';
+declare namespace ns2='http://thomas-bayer.com/blz/';
+
+//ns2:ort
+</con:sourcePath><con:targetType>ort_code</con:targetType><con:targetStep>StoringValues</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>plz</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>StoringPropertyValue</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.springframework.org/schema/beans';
+declare namespace ns2='http://thomas-bayer.com/blz/';
+
+//ns2:plz</con:sourcePath><con:targetType>plz_code</con:targetType><con:targetStep>StoringValues</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="properties" name="StoringValues" id="5dfa9d0a-3493-4b83-a120-eaaf4ade1ce4"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" createMissingOnLoad="false" discardValuesOnSave="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>bic_code</con:name><con:value>ESSEDE5F550</con:value></con:property><con:property><con:name>ort_code</con:name><con:value>Mainz a Rhein</con:value></con:property><con:property><con:name>plz_code</con:name><con:value>55116</con:value></con:property></con:properties></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>blc</con:name><con:value>55010111</con:value></con:property></con:properties></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

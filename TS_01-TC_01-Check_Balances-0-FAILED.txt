@@ -1,0 +1,53 @@
+Status: FAILED
+Time Taken: 1658
+Size: 289
+Timestamp: Thu Oct 04 11:14:46 AEST 2018
+TestStep: Check Balances
+
+----------------- Messages ------------------------------
+[Response SLA] Response did not meet SLA 330/77
+[XPath Match] XPathContains comparison failed for path [declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.example.org/AccountService/';
+//ns1:amount], expecting [1000.0], actual was [1200.0]
+
+----------------- Properties ------------------------------
+Endpoint: http://localhost:8080/services/accountService
+Encoding: UTF-8
+
+---------------- Request ---------------------------
+Request Headers: SOAPAction : "http://www.example.org/AccountService/getBalance"
+Connection : Keep-Alive
+User-Agent : Apache-HttpClient/4.1.1 (java 1.5)
+Host : localhost:8080
+Accept-Encoding : gzip,deflate
+Content-Length : 310
+Content-Type : text/xml;charset=UTF-8
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://www.example.org/AccountService/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <acc:getBalance>
+         <acc:accountNo>ACC-10010</acc:accountNo>
+      </acc:getBalance>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+---------------- Response --------------------------
+Response Headers: Server : Apache-Coyote/1.1
+#status# : HTTP/1.1 200 OK
+X-Application-Context : application
+Content-Length : 289
+Date : Thu, 04 Oct 2018 01:14:46 GMT
+Content-Type : text/xml;charset=UTF-8
+
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <getBalanceResponse xmlns="http://www.example.org/AccountService/">
+         <status>000</status>
+         <message>Retrieved balance successfully</message>
+         <amount>1200.0</amount>
+      </getBalanceResponse>
+   </soap:Body>
+</soap:Envelope>
